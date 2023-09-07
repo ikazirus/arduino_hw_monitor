@@ -1,3 +1,5 @@
+import sys
+sys.path.append('scripts')
 import time
 from gui import MainWindow
 from monitor_performance import net_usage
@@ -14,11 +16,9 @@ def main():
     
 if __name__ == "__main__":
     # main()
-    # print(psutil.net_io_counters(pernic=True))
-    # for port in port_list:
-    #     print (f"{port.name} - {port.serial_number}")
     
-    main_window = MainWindow()
-    main_window.port_list = port_list
+    main_window = MainWindow(port_list) 
+    for item in port_list:
+        print(item.name)
     main_window.open_window()
     
